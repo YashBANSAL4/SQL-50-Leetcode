@@ -1,0 +1,4 @@
+SELECT DISTINCT p1.email AS Email 
+FROM Person p1
+JOIN Person p2 
+WHERE p2.id>p1.id AND p1.email=p2.email;

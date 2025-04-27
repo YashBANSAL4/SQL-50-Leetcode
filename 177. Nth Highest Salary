@@ -7,5 +7,6 @@ BEGIN
           FROM Employee
       ) AS RankedSalaries
       WHERE rnk = N
+LIMIT 1
   );
 END

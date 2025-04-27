@@ -1,0 +1,13 @@
+WITH RankedSalaries AS (
+    SELECT 
+        e.name AS Employee,
+        d.name AS Department,
+        e.salary,
+        Rank() OVER (PARTITION BY d.name ORDER BY e.salary DESC) AS rnk
+    FROM Employee e
+    JOIN Department d
+    ON e.departmentId = d.id
+)
+SELECT Department, Employee, salary AS Salary
+FROM RankedSalaries
+WHERE rnk = 1;
